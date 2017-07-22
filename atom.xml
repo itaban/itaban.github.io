@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>itaban入门到放弃家园--_--!!!</title>
+  <subtitle>一个是IT不似IT的挨踢</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="itaban.github.io/"/>
+  <updated>2017-06-13T12:33:31.888Z</updated>
+  <id>itaban.github.io/</id>
+  
+  <author>
+    <name>itaban</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>New Legend of Nadame White Snake</title>
+    <link href="itaban.github.io/2017/04/16/New-Legend-of-Nadame-White-Snake/"/>
+    <id>itaban.github.io/2017/04/16/New-Legend-of-Nadame-White-Snake/</id>
+    <published>2017-04-16T09:31:19.000Z</published>
+    <updated>2017-06-13T12:33:31.888Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/img/New-Legend-of-Nadame-White-Snake/New-Legend-of-Nadame-White-Snake.JPG" alt="img"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/img/New-Legend-of-Nadame-White-Snake/New-Legend-of-Nadame-White-Snake.JPG&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="其它" scheme="itaban.github.io/tags/%E5%85%B6%E5%AE%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python开原框架scrapy抓取世纪佳缘MM数据</title>
+    <link href="itaban.github.io/2017/04/04/python-scrapy/"/>
+    <id>itaban.github.io/2017/04/04/python-scrapy/</id>
+    <published>2017-04-04T09:58:44.000Z</published>
+    <updated>2017-06-13T12:33:31.892Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="scrapy简介"><a href="#scrapy简介" class="headerlink" title="scrapy简介"></a>scrapy简介</h2><p>Scrapy，Python开发的一个快速,高层次的屏幕抓取和web抓取框架，用于抓取web站点并从页面中提取结构化的数据。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。</p>
+<p>Scrapy吸引人的地方在于它是一个框架，任何人都可以根据需求方便的修改。它也提供了多种类型爬虫的基类，如BaseSpider、sitemap爬虫等，最新版本又提供了web2.0爬虫的支持。</p>
+<h2 id="scrapy安装"><a href="#scrapy安装" class="headerlink" title="scrapy安装"></a>scrapy安装</h2><p>安装scrapy前已具备python，pip环境，终端运行：<br><code>pip install scrapy</code></p>
+<h2 id="初始化项目"><a href="#初始化项目" class="headerlink" title="初始化项目"></a>初始化项目</h2><p><code>scrapy startproject jiayuanScrapy</code></p>
+<h2 id="项目目录结构"><a href="#项目目录结构" class="headerlink" title="项目目录结构"></a>项目目录结构</h2><p>用sublime打开项目结构如下：<br><img src="/img/python_scrapy/jiayuan_project_tree.png" alt="img"><br>这些文件主要是：</p>
+<ul>
+<li>scrapy.cfg: 项目配置文件</li>
+<li>jiayuanScrapy/: 项目python模块, 呆会代码将从这里导入</li>
+<li>jiayuanScrapy/items.py: 项目items文件</li>
+<li>jiayuanScrapy/pipelines.py: 项目管道文件</li>
+<li>jiayuanScrapy/settings.py: 项目配置文件</li>
+<li>jiayuanScrapy/spiders: 放置spider的目录</li>
+</ul>
+<h2 id="定义Item"><a href="#定义Item" class="headerlink" title="定义Item"></a>定义Item</h2><p>Items是将要装载抓取的数据的容器，它工作方式像python里面的字典，但它提供更多的保护，比如对未定义的字段填充以防止拼写错误。</p>
+<p>它通过创建一个scrapy.item.Item类来声明，定义它的属性为scrpy.item.Field对象，就像是一个对象关系映射(ORM).</p>
+<p>我们通过将需要的item模型化，来控制从dmoz.org获得的站点数据，比如我们要获得站点的名字，url和网站描述，我们定义这三种属性的域。要做到这点，我们编辑在tutorial目录下的items.py文件，我们的Item类将会是这样<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> scrapy.item <span class="keyword">import</span> Item, Field </div><div class="line">	<span class="class"><span class="keyword">class</span> <span class="title">JiayuanItem</span><span class="params">(Item)</span>:</span></div><div class="line">		name = scrapy.Field() <span class="comment">#用户昵称</span></div><div class="line">		realUid = scrapy.Field() <span class="comment">#用户ID</span></div><div class="line">		age = scrapy.Field() <span class="comment">#用户年龄</span></div><div class="line">		education = scrapy.Field() <span class="comment">#学历</span></div><div class="line">		height = scrapy.Field() <span class="comment">#身高</span></div><div class="line">		weight = scrapy.Field() <span class="comment">#体重</span></div><div class="line">		nation = scrapy.Field() <span class="comment">#户籍</span></div><div class="line">		self_introduction = scrapy.Field() <span class="comment">#自我简介</span></div><div class="line">		requirement = scrapy.Field() <span class="comment">#另一半要求</span></div><div class="line">		image = scrapy.Field() <span class="comment">#头像</span></div><div class="line">		marriage = scrapy.Field() <span class="comment">#婚姻状态</span></div><div class="line">		work_location = scrapy.Field() <span class="comment">#工作省份</span></div><div class="line">		work_sublocation = scrapy.Field() <span class="comment">#工作区域</span></div></pre></td></tr></table></figure></p>
+<h2 id="我们的第一个爬虫-Spider"><a href="#我们的第一个爬虫-Spider" class="headerlink" title="我们的第一个爬虫(Spider)"></a>我们的第一个爬虫(Spider)</h2><p>要建立一个Spider，你必须为scrapy.spider.BaseSpider创建一个子类，并确定三个主要的、强制的属性：</p>
+<ul>
+<li>name：爬虫的识别名，它必须是唯一的，在不同的爬虫中你必须定义不同的名字.</li>
+<li>start_urls：爬虫开始爬的一个URL列表。爬虫从这里开始抓取数据，所以，第一次下载的数据将会从这些URLS开始。其他子URL将会从这些起始URL中继承性生成。</li>
+<li>parse()：爬虫的方法，调用时候传入从每一个URL传回的Response对象作为参数，response将会是parse方法的唯一的一个参数,这个方法负责解析返回的数据、匹配抓取的数据(解析为item)并跟踪更多的URL。</li>
+</ul>
+<p>在/jiayuanScrapy/spiders/目录下新建文件jiayuanSpider.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> scrapy</div><div class="line"><span class="keyword">from</span> scrapy.spider <span class="keyword">import</span> BaseSpider</div><div class="line"><span class="keyword">import</span> sys</div><div class="line"><span class="keyword">import</span> os</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</div><div class="line"><span class="keyword">from</span> jiayuanScrapy.items <span class="keyword">import</span> JiayuanscrapyItem</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">JiayuanSpider</span><span class="params">(BaseSpider)</span>:</span></div><div class="line">	name = <span class="string">"jiayuan"</span></div><div class="line">	allowed_domains = [<span class="string">"search.jiayuan.com"</span>]</div><div class="line">	start_urls = []</div><div class="line">	url = <span class="string">'http://www.jiayuan.com'</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">start_requests</span><span class="params">(self)</span>:</span></div><div class="line">		baseUrl = <span class="string">"http://search.jiayuan.com/v2/search_v2.php?key=&amp;sex=f&amp;stc=23:1&amp;sn=default&amp;sv=1&amp;f=select&amp;listStyle=bigPhoto&amp;pri_uid=0&amp;jsversion=v5&amp;p="</span></div><div class="line">		<span class="keyword">try</span>:</div><div class="line">			<span class="comment">#for page in range(1,46948):</span></div><div class="line">			<span class="keyword">for</span> page <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">46948</span>):</div><div class="line">				self.start_urls.append(baseUrl+str(page))</div><div class="line">				<span class="keyword">print</span> self.start_urls</div><div class="line">			<span class="keyword">for</span> url <span class="keyword">in</span> self.start_urls:</div><div class="line">				<span class="keyword">yield</span> self.make_requests_from_url(url)	</div><div class="line">		<span class="keyword">finally</span>:</div><div class="line">			<span class="keyword">print</span> <span class="string">"="</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">parse</span><span class="params">(self, response)</span>:</span></div><div class="line">		filename = response.url.split(<span class="string">"/"</span>)[<span class="number">-2</span>]</div><div class="line">		responseString = response.body</div><div class="line">		responseString = responseString.replace(<span class="string">'##jiayser##//'</span>,<span class="string">''</span>)</div><div class="line">		responseString = responseString.replace(<span class="string">'##jiayser##'</span>,<span class="string">''</span>)</div><div class="line">		open(filename, <span class="string">'wb'</span>).write(responseString)</div><div class="line">		jsonObject = json.loads(responseString)</div><div class="line">		pageTotal = jsonObject[<span class="string">u'pageTotal'</span>]</div><div class="line">		users = jsonObject[<span class="string">u'userInfo'</span>]</div><div class="line">		<span class="keyword">for</span> u <span class="keyword">in</span> users:</div><div class="line">			item = JiayuanscrapyItem()</div><div class="line">			item[<span class="string">'name'</span>] = u[<span class="string">'nickname'</span>]</div><div class="line">			item[<span class="string">'realUid'</span>] = u[<span class="string">'realUid'</span>]</div><div class="line">			item[<span class="string">'height'</span>] = u[<span class="string">'height'</span>]</div><div class="line">			item[<span class="string">'weight'</span>] = u[<span class="string">'randListTag'</span>]</div><div class="line">			item[<span class="string">'age'</span>] = u[<span class="string">'age'</span>]</div><div class="line">			item[<span class="string">'education'</span>] = u[<span class="string">'education'</span>]</div><div class="line">			item[<span class="string">'image'</span>] = u[<span class="string">'image'</span>]</div><div class="line">			item[<span class="string">'self_introduction'</span>] = u[<span class="string">'shortnote'</span>]</div><div class="line">			item[<span class="string">'requirement'</span>] = u[<span class="string">'matchCondition'</span>]</div><div class="line">			item[<span class="string">'marriage'</span>] = u[<span class="string">'marriage'</span>]</div><div class="line">			item[<span class="string">'work_location'</span>] = u[<span class="string">'work_location'</span>]</div><div class="line">			item[<span class="string">'work_sublocation'</span>] = u[<span class="string">'work_sublocation'</span>]</div><div class="line">			fxly = <span class="string">'search_v2_index'</span></div><div class="line">			<span class="keyword">if</span> <span class="string">'fxly'</span> <span class="keyword">in</span> u.keys():</div><div class="line">				fxly = u[<span class="string">'fxly'</span>]</div><div class="line">			<span class="comment"># if u.has_key(u'fxly'):</span></div><div class="line">			<span class="comment"># 	fxly = u['fxly']</span></div><div class="line">			<span class="comment"># 	print '----------------------'</span></div><div class="line">			<span class="comment">#print u</span></div><div class="line">			<span class="keyword">yield</span> scrapy.Request(self.url+<span class="string">'/'</span>+str(u[<span class="string">'realUid'</span>])+<span class="string">'?fxly='</span>+fxly,callback=self.parse_book_list_detail,dont_filter=<span class="keyword">True</span>,meta=&#123;<span class="string">'item'</span>:item&#125;)</div><div class="line">			<span class="comment">#这个yield好像和return挺像的，具体我还得看下python的书，那个url是相对的网址，要自己拼凑出来，callback一个回传</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">parse_book_list_detail</span><span class="params">(self,response)</span>:</span> <span class="comment">#相当于点进去一个网站，处理那个点进去的网站的信息</span></div><div class="line">		item = response.meta[<span class="string">'item'</span>]</div><div class="line">		<span class="comment">#print response.body</span></div><div class="line">		<span class="comment">#summary = response.xpath('//div[@id="bigImg"]/ul/li/table/tr/td/a/img/@src').extract()</span></div><div class="line">		<span class="comment">#print summary</span></div><div class="line">		<span class="comment">#item['kk'] = '\n'.join(summary)</span></div><div class="line">		<span class="comment">#print '---------------------------------------------'</span></div><div class="line">		<span class="keyword">yield</span> item</div></pre></td></tr></table></figure>
+<h2 id="pipelines-py文件内添加如下代码："><a href="#pipelines-py文件内添加如下代码：" class="headerlink" title="pipelines.py文件内添加如下代码："></a>pipelines.py文件内添加如下代码：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">JiayuanscrapyPipeline</span><span class="params">(object)</span>:</span></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></div><div class="line">		<span class="comment"># 链接数据库</span></div><div class="line">		self.client = pymongo.MongoClient(host=settings[<span class="string">'MONGO_HOST'</span>], port=settings[<span class="string">'MONGO_PORT'</span>])</div><div class="line">		<span class="comment"># 数据库登录需要帐号密码的话</span></div><div class="line">		<span class="comment"># self.client.admin.authenticate(settings['MINGO_USER'], settings['MONGO_PSW'])</span></div><div class="line">		self.db = self.client[settings[<span class="string">'MONGO_DB'</span>]]  <span class="comment"># 获得数据库的句柄</span></div><div class="line">		self.coll = self.db[settings[<span class="string">'MONGO_COLL'</span>]]  <span class="comment"># 获得collection的句柄</span></div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">def</span> <span class="title">process_item</span><span class="params">(self, item, spider)</span>:</span></div><div class="line">		postItem = dict(item)  <span class="comment"># 把item转化成字典形式</span></div><div class="line">		self.coll.insert(postItem)  <span class="comment"># 向数据库插入一条记录</span></div><div class="line">		dir_path = <span class="string">'%s/%s/%s'</span> % (settings[<span class="string">'IMAGES_STORE'</span>], spider.name,postItem[<span class="string">'name'</span>])</div><div class="line">		<span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dir_path):</div><div class="line">			os.mkdir(dir_path)</div><div class="line">		us = postItem[<span class="string">'image'</span>].split(<span class="string">'/'</span>)[<span class="number">-1</span>]</div><div class="line">		image_file_name = us</div><div class="line">		file_path = <span class="string">'%s/%s'</span> % (dir_path, image_file_name)</div><div class="line">		<span class="keyword">print</span> file_path</div><div class="line">		<span class="keyword">with</span> open(file_path, <span class="string">'wb'</span>) <span class="keyword">as</span> handle:</div><div class="line">			response = requests.get(postItem[<span class="string">'image'</span>], stream=<span class="keyword">True</span>)</div><div class="line">			<span class="keyword">for</span> block <span class="keyword">in</span> response.iter_content(<span class="number">1024</span>):</div><div class="line">				<span class="keyword">if</span> <span class="keyword">not</span> block:</div><div class="line">					<span class="keyword">break</span></div><div class="line">				handle.write(block)	</div><div class="line"></div><div class="line">		<span class="keyword">return</span> item  <span class="comment"># 会在控制台输出原item数据，可以选择不写</span></div></pre></td></tr></table></figure>
+<h2 id="修改settings-py文件"><a href="#修改settings-py文件" class="headerlink" title="修改settings.py文件"></a>修改settings.py文件</h2><p>添加以下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ITEM_PIPELINES = &#123;</div><div class="line">    &apos;jiayuanScrapy.pipelines.JiayuanscrapyPipeline&apos;: 300,</div><div class="line">&#125;</div><div class="line">MONGO_HOST = &quot;127.0.0.1&quot;  # 主机IP</div><div class="line">MONGO_PORT = 27017  # 端口号</div><div class="line">MONGO_DB = &quot;Spider&quot;  # 库名 </div><div class="line">MONGO_COLL = &quot;jiayuan&quot;  # collection名</div><div class="line">IMAGES_STORE = &apos;.&apos;</div></pre></td></tr></table></figure></p>
+<h2 id="爬取数据"><a href="#爬取数据" class="headerlink" title="爬取数据"></a>爬取数据</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd jiayuanScrapy</div><div class="line">scrapy crawl jiayuan</div></pre></td></tr></table></figure>
+<p>爬取结束后可以看到项目根目录下有一个jiayuan文件夹，里面有很多以用户昵称创建的文件夹，存放的是该用户的佳缘头像。</p>
+<h2 id="使用robomongo查看mongo存储的数据"><a href="#使用robomongo查看mongo存储的数据" class="headerlink" title="使用robomongo查看mongo存储的数据"></a>使用robomongo查看mongo存储的数据</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;scrapy简介&quot;&gt;&lt;a href=&quot;#scrapy简介&quot; class=&quot;headerlink&quot; title=&quot;scrapy简介&quot;&gt;&lt;/a&gt;scrapy简介&lt;/h2&gt;&lt;p&gt;Scrapy，Python开发的一个快速,高层次的屏幕抓取和web抓取框架，用于抓取web站
+    
+    </summary>
+    
+    
+      <category term="python" scheme="itaban.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>利用Hexo+github快速搭建博客系统</title>
+    <link href="itaban.github.io/2017/04/02/hexo-blog/"/>
+    <id>itaban.github.io/2017/04/02/hexo-blog/</id>
+    <published>2017-04-02T14:18:34.000Z</published>
+    <updated>2017-06-13T12:33:31.890Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hexo是什么？"><a href="#Hexo是什么？" class="headerlink" title="Hexo是什么？"></a>Hexo是什么？</h1><p>  Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托管在github和Heroku上。<br>快速、简单且功能强大的 Node.js 博客框架。A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
+<h1 id="GitHub-Pages是什么？"><a href="#GitHub-Pages是什么？" class="headerlink" title="GitHub Pages是什么？"></a>GitHub Pages是什么？</h1><p>  GitHub Pages 可以被认为是用户编写的、托管在github上的静态网页。由于它的空间免费稳定， 可以用于介绍托管在github上的Project或者搭建网站。</p>
+<h1 id="Hexo安装及项目创建"><a href="#Hexo安装及项目创建" class="headerlink" title="Hexo安装及项目创建"></a>Hexo安装及项目创建</h1><h2 id="1-Node安装"><a href="#1-Node安装" class="headerlink" title="1.Node安装"></a>1.Node安装</h2><p>  由于 Hexo 是基于 Node ，安装前要先安装 Node，安装步骤请自行百度。</p>
+<h2 id="2-Hexo安装"><a href="#2-Hexo安装" class="headerlink" title="2.Hexo安装"></a>2.Hexo安装</h2><p>  <code>npm install -g hexo</code></p>
+<h2 id="3-创建项目"><a href="#3-创建项目" class="headerlink" title="3.创建项目"></a>3.创建项目</h2><p>  <code>hexo init myBlog</code></p>
+<h2 id="4-安装项目依赖"><a href="#4-安装项目依赖" class="headerlink" title="4.安装项目依赖"></a>4.安装项目依赖</h2><p>  <code>cd myBlog</code><br>  <code>npm install</code></p>
+<h2 id="5-启动项目"><a href="#5-启动项目" class="headerlink" title="5.启动项目"></a>5.启动项目</h2><p>  <code>hexo server</code><br>  hexo默认使用4000端口，浏览器打开：<a href="http：//locahost:4000">http：//locahost:4000</a>即可访问。</p>
+<h2 id="6-Hexo主题安装"><a href="#6-Hexo主题安装" class="headerlink" title="6.Hexo主题安装"></a>6.Hexo主题安装</h2><p>  hexo官网提供了很多主题，知乎有一回答主题列表的，地址：<a href="https://www.zhihu.com/question/24422335" target="_blank" rel="external">https://www.zhihu.com/question/24422335</a>，选择自己喜欢的主题下载，将主题放在 /myBlog/themes文件夹下，修改/myBlog/_config.yml文件内的theme：‘刚刚下载的主题名’。</p>
+<h1 id="GitHub项目创建"><a href="#GitHub项目创建" class="headerlink" title="GitHub项目创建"></a>GitHub项目创建</h1><h2 id="1-GitHub帐号申请"><a href="#1-GitHub帐号申请" class="headerlink" title="1.GitHub帐号申请"></a>1.GitHub帐号申请</h2><p>  不会的自行百度。</p>
+<h2 id="2-GitHub项目创建"><a href="#2-GitHub项目创建" class="headerlink" title="2.GitHub项目创建"></a>2.GitHub项目创建</h2><p>  建议Repository name 一栏填写：用户名.github.io,可以避免Hexo本地与远程资源引用目录问题。<br>  <img src="/img/create_git_repositores.png" alt="img"></p>
+<h2 id="3-设置GitHub-Pages"><a href="#3-设置GitHub-Pages" class="headerlink" title="3.设置GitHub Pages"></a>3.设置GitHub Pages</h2><p>  进入项目，点击Settings即可设置<br>  <img src="/img/itaban_project_page.png" alt="img"><br>  找到 GitHub Pages，Source选择master 点击save即可。<br>  <img src="/img/itaban_pages_setting.png" alt="img"></p>
+<h1 id="发布博客GitHub"><a href="#发布博客GitHub" class="headerlink" title="发布博客GitHub"></a>发布博客GitHub</h1><h2 id="1-设置git身份信息"><a href="#1-设置git身份信息" class="headerlink" title="1.设置git身份信息"></a>1.设置git身份信息</h2><p>  <code>git config --global user.name &quot;你的用户名&quot;</code><br>  <code>git config --global user.email &quot;你的邮箱&quot;</code></p>
+<h2 id="2-安装hexo-git插件"><a href="#2-安装hexo-git插件" class="headerlink" title="2.安装hexo git插件"></a>2.安装hexo git插件</h2><p>  <code>npm install hexo-deployer-git --save</code></p>
+<h2 id="3-配置发布设置"><a href="#3-配置发布设置" class="headerlink" title="3.配置发布设置"></a>3.配置发布设置</h2><p>  修改/_config.yml文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repo: git@github.com:itaban/itaban.github.io.git</div><div class="line">	branch: master</div></pre></td></tr></table></figure></p>
+<h2 id="4-生成部署"><a href="#4-生成部署" class="headerlink" title="4.生成部署"></a>4.生成部署</h2><p>  <code>hexo d -g #在部署前先生成</code></p>
+<h2 id="5-错误解决"><a href="#5-错误解决" class="headerlink" title="5.错误解决"></a>5.错误解决</h2><p>  如果出现下面这样的错误：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Permission denied (publickey).</div><div class="line">fatal: Could not read from remote repository.</div><div class="line">Please make sure you have the correct access rights</div><div class="line">and the repository exists.</div></pre></td></tr></table></figure></p>
+<p>  则是因为没有设置好public key所致。<br>  在本机生成public key,不懂的可以参考我的这一篇博客<a href="http://blog.csdn.net/gdutxiaoxu/article/details/53573399" target="_blank" rel="external">Git ssh</a> 配置及使用</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>  经过上述步骤，一个属于自己的博客系统已经创建完成了!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Hexo是什么？&quot;&gt;&lt;a href=&quot;#Hexo是什么？&quot; class=&quot;headerlink&quot; title=&quot;Hexo是什么？&quot;&gt;&lt;/a&gt;Hexo是什么？&lt;/h1&gt;&lt;p&gt;  Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托
+    
+    </summary>
+    
+    
+      <category term="python" scheme="itaban.github.io/tags/python/"/>
+    
+      <category term="java" scheme="itaban.github.io/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>centos7安装mysql server 5.7</title>
+    <link href="itaban.github.io/2016/02/01/installMysqlOnCentos/"/>
+    <id>itaban.github.io/2016/02/01/installMysqlOnCentos/</id>
+    <published>2016-02-01T06:29:57.000Z</published>
+    <updated>2017-07-01T07:48:55.471Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1、配置yum源"><a href="#1、配置yum源" class="headerlink" title="1、配置yum源"></a>1、配置yum源</h1><h4 id="下载源"><a href="#下载源" class="headerlink" title="下载源"></a>下载源</h4><p><code>wget wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code></p>
+<h4 id="安装源"><a href="#安装源" class="headerlink" title="安装源"></a>安装源</h4><p><code>rpm -ivh mysql57-community-release-el7-8.noarch.rpm</code></p>
+<h1 id="2、安装mysql服务"><a href="#2、安装mysql服务" class="headerlink" title="2、安装mysql服务"></a>2、安装mysql服务</h1><p><code>yum install mysql-community-server</code></p>
+<h1 id="3、启动服务"><a href="#3、启动服务" class="headerlink" title="3、启动服务"></a>3、启动服务</h1><p><code>systemctl start mysqld</code></p>
+<h1 id="4、开机启动"><a href="#4、开机启动" class="headerlink" title="4、开机启动"></a>4、开机启动</h1><p><code>systemctl enable mysqld</code><br><code>systemctl daemon-reload</code></p>
+<h1 id="5、修改root密码"><a href="#5、修改root密码" class="headerlink" title="5、修改root密码"></a>5、修改root密码</h1><h4 id="查看安装的默认密码"><a href="#查看安装的默认密码" class="headerlink" title="查看安装的默认密码"></a>查看安装的默认密码</h4><p><code>grep &#39;temporary password&#39; /var/log/mysqld.log</code></p>
+<h4 id="登录mysql"><a href="#登录mysql" class="headerlink" title="登录mysql"></a>登录mysql</h4><p><code>mysql -uroot -p</code></p>
+<h4 id="修改密码"><a href="#修改密码" class="headerlink" title="修改密码"></a>修改密码</h4><p><code>ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;newpassword&#39;</code></p>
+<h1 id="6、添加远程登录用户"><a href="#6、添加远程登录用户" class="headerlink" title="6、添加远程登录用户"></a>6、添加远程登录用户</h1><p><code>GRANT ALL PRIVILEGES ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;newpassword&#39; WITH GRANT OPTION</code></p>
+<p>#7、设置编码</p>
+<p><code>vi /etc/my.cnf</code><br>添加<br><code>haracter_set_server=utf8</code><br><code>init_connect=&#39;SET NAMES utf8&#39;</code></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;1、配置yum源&quot;&gt;&lt;a href=&quot;#1、配置yum源&quot; class=&quot;headerlink&quot; title=&quot;1、配置yum源&quot;&gt;&lt;/a&gt;1、配置yum源&lt;/h1&gt;&lt;h4 id=&quot;下载源&quot;&gt;&lt;a href=&quot;#下载源&quot; class=&quot;headerlink&quot; ti
+    
+    </summary>
+    
+    
+      <category term="database" scheme="itaban.github.io/tags/database/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用maven命令行创建多模块项目</title>
+    <link href="itaban.github.io/2016/01/04/maven-build-modules-project/"/>
+    <id>itaban.github.io/2016/01/04/maven-build-modules-project/</id>
+    <published>2016-01-04T09:58:44.000Z</published>
+    <updated>2017-07-22T15:22:41.834Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="创建父级模块"><a href="#创建父级模块" class="headerlink" title="创建父级模块"></a>创建父级模块</h2><h5 id="1、命令行运行："><a href="#1、命令行运行：" class="headerlink" title="1、命令行运行："></a>1、命令行运行：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop </div><div class="line">-Dversion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-site-simple </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<h5 id="2、项目结构如下图："><a href="#2、项目结构如下图：" class="headerlink" title="2、项目结构如下图："></a>2、项目结构如下图：</h5><p><img src="/img/maven-build-modules-project/parent.png" alt="img"></p>
+<h2 id="创建子模块"><a href="#创建子模块" class="headerlink" title="创建子模块"></a>创建子模块</h2><h5 id="1、切换目录"><a href="#1、切换目录" class="headerlink" title="1、切换目录"></a>1、切换目录</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd DShop/</div></pre></td></tr></table></figure>
+<h5 id="2、创建项目子模块"><a href="#2、创建项目子模块" class="headerlink" title="2、创建项目子模块"></a>2、创建项目子模块</h5><ul>
+<li>系统公共模块<br>|__  此模块存放整个系统共用的一些方法啊，比如时间处理，分页处理，异常处理等等。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Common </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/common.png" alt="img"></p>
+<ul>
+<li>系统公共配置模块<br> |__ 此模块存放整个系统配置文件，比如spring的配置文件，hibernate的配置文件，日志配置文件等等。 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx </div><div class="line">-DartifactId=DShop-Common-Config -Devrsion=1.0.0-SNAPSHOT </div><div class="line">-Dpackage=com.zmrx -DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/common-config.png" alt="img"></p>
+<ul>
+<li>系统服务模块<br>|__ 此模块为整个系统的业务逻辑处理模块，存放各种业务代码。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Service </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/service.png" alt="img"></p>
+<ul>
+<li>系统domain模块<br>|__ 此模块存放数据库映射bean。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Domain </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/service.png" alt="img"></p>
+<ul>
+<li>系统web模块<br>|__ 此模块为web服务模块，提供web服务。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Web </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-webapp </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/web.png" alt="img"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;创建父级模块&quot;&gt;&lt;a href=&quot;#创建父级模块&quot; class=&quot;headerlink&quot; title=&quot;创建父级模块&quot;&gt;&lt;/a&gt;创建父级模块&lt;/h2&gt;&lt;h5 id=&quot;1、命令行运行：&quot;&gt;&lt;a href=&quot;#1、命令行运行：&quot; class=&quot;headerlink&quot; 
+    
+    </summary>
+    
+    
+      <category term="java" scheme="itaban.github.io/tags/java/"/>
+    
+  </entry>
+  
+</feed>
