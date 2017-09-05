@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="itaban.github.io/"/>
-  <updated>2017-06-13T12:33:31.888Z</updated>
+  <updated>2017-09-03T14:45:16.915Z</updated>
   <id>itaban.github.io/</id>
   
   <author>
@@ -14,6 +14,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>create-spring-cloud-app-by-maven</title>
+    <link href="itaban.github.io/2017/09/03/create-spring-cloud-app-by-maven/"/>
+    <id>itaban.github.io/2017/09/03/create-spring-cloud-app-by-maven/</id>
+    <published>2017-09-03T13:51:37.000Z</published>
+    <updated>2017-09-03T14:45:16.915Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="创建SBShoop项目"><a href="#创建SBShoop项目" class="headerlink" title="创建SBShoop项目"></a>创建SBShoop项目</h1><h3 id="1、进入命令行，输入一下命令："><a href="#1、进入命令行，输入一下命令：" class="headerlink" title="1、进入命令行，输入一下命令："></a>1、进入命令行，输入一下命令：</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.itaban.app -DartifactId=SBCShoop -DarchetypeArtifactId=maven-archetype-quickstart -DinteracticeMode=false</div></pre></td></tr></table></figure>
+<h3 id="2、将src文件夹删除，然后修改pom-xml文件，将jar修改为pom，pom表示它是一个被继承的模块，修改后的内容如下："><a href="#2、将src文件夹删除，然后修改pom-xml文件，将jar修改为pom，pom表示它是一个被继承的模块，修改后的内容如下：" class="headerlink" title="2、将src文件夹删除，然后修改pom.xml文件，将jar修改为pom，pom表示它是一个被继承的模块，修改后的内容如下："></a>2、将src文件夹删除，然后修改pom.xml文件，将<packaging>jar</packaging>修改为<packaging>pom</packaging>，pom表示它是一个被继承的模块，修改后的内容如下：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.itaban.app<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>SBCShoop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>SBCShoop<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">modules</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>SBCShop-Eureka-Server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>SBCShop-Eureka-Client<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">modules</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure>
+<h1 id="创建SBCShop-Eureka-Server模块"><a href="#创建SBCShop-Eureka-Server模块" class="headerlink" title="创建SBCShop-Eureka-Server模块"></a>创建SBCShop-Eureka-Server模块</h1><h3 id="1、进入SBCShop文件夹"><a href="#1、进入SBCShop文件夹" class="headerlink" title="1、进入SBCShop文件夹"></a>1、进入SBCShop文件夹</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd SBCShop</div></pre></td></tr></table></figure>
+<h3 id="2、创建SBCShop-Eureka-Server模块"><a href="#2、创建SBCShop-Eureka-Server模块" class="headerlink" title="2、创建SBCShop-Eureka-Server模块"></a>2、创建SBCShop-Eureka-Server模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.itaban.app -DartifactId=SBCShop-Eureka-Server -DarchetypeArtifactId=maven-quickstart -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<h1 id="创建SBCShop-Eureka-Client模块"><a href="#创建SBCShop-Eureka-Client模块" class="headerlink" title="创建SBCShop-Eureka-Client模块"></a>创建SBCShop-Eureka-Client模块</h1><h3 id="1、创建SBCShop-Eureka-Client模块"><a href="#1、创建SBCShop-Eureka-Client模块" class="headerlink" title="1、创建SBCShop-Eureka-Client模块"></a>1、创建SBCShop-Eureka-Client模块</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.itaban.app -DartifactId=SBCShop-Eureka-Client -DarchetypeArtifactId=maven-quickstart -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<h1 id="修改pom-xml文件"><a href="#修改pom-xml文件" class="headerlink" title="修改pom.xml文件"></a>修改pom.xml文件</h1><h3 id="1、修改SBCShop文件夹下的pom-xml文件，添加如下内容："><a href="#1、修改SBCShop文件夹下的pom-xml文件，添加如下内容：" class="headerlink" title="1、修改SBCShop文件夹下的pom.xml文件，添加如下内容："></a>1、修改SBCShop文件夹下的pom.xml文件，添加如下内容：</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">modules</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>SBCShop-Eureka-Server<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">module</span>&gt;</span>SBCShop-Eureka-Client<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">modules</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="2、修改SBCShop-Eureka-Server文件夹下的pom-xml文件"><a href="#2、修改SBCShop-Eureka-Server文件夹下的pom-xml文件" class="headerlink" title="2、修改SBCShop-Eureka-Server文件夹下的pom.xml文件"></a>2、修改SBCShop-Eureka-Server文件夹下的pom.xml文件</h3><ul>
+<li>删除<groupid>com.itaban.app</groupid></li>
+<li>删除 <version>1.0-SNAPSHOT</version></li>
+<li>添加<packaging>jar</packaging><h5 id="注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar"><a href="#注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar" class="headerlink" title="注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar"></a>注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar</h5><h3 id="3、修改SBCShop-Eureka-Client文件夹下的pom-xml文件"><a href="#3、修改SBCShop-Eureka-Client文件夹下的pom-xml文件" class="headerlink" title="3、修改SBCShop-Eureka-Client文件夹下的pom.xml文件"></a>3、修改SBCShop-Eureka-Client文件夹下的pom.xml文件</h3></li>
+<li>删除<groupid>com.itaban.app</groupid></li>
+<li>删除 <version>1.0-SNAPSHOT</version></li>
+<li>添加<packaging>jar</packaging><h5 id="注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar-1"><a href="#注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar-1" class="headerlink" title="注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar"></a>注：groupId和version会继承SBCShop中的groupId和version，packaging设置打包方式为jar</h5></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;创建SBShoop项目&quot;&gt;&lt;a href=&quot;#创建SBShoop项目&quot; class=&quot;headerlink&quot; title=&quot;创建SBShoop项目&quot;&gt;&lt;/a&gt;创建SBShoop项目&lt;/h1&gt;&lt;h3 id=&quot;1、进入命令行，输入一下命令：&quot;&gt;&lt;a href=&quot;#1、
+    
+    </summary>
+    
+    
+      <category term="java" scheme="itaban.github.io/tags/java/"/>
+    
+  </entry>
   
   <entry>
     <title>New Legend of Nadame White Snake</title>
@@ -42,7 +76,7 @@
     <link href="itaban.github.io/2017/04/04/python-scrapy/"/>
     <id>itaban.github.io/2017/04/04/python-scrapy/</id>
     <published>2017-04-04T09:58:44.000Z</published>
-    <updated>2017-06-13T12:33:31.892Z</updated>
+    <updated>2017-06-13T12:33:31.891Z</updated>
     
     <content type="html"><![CDATA[<h2 id="scrapy简介"><a href="#scrapy简介" class="headerlink" title="scrapy简介"></a>scrapy简介</h2><p>Scrapy，Python开发的一个快速,高层次的屏幕抓取和web抓取框架，用于抓取web站点并从页面中提取结构化的数据。Scrapy用途广泛，可以用于数据挖掘、监测和自动化测试。</p>
 <p>Scrapy吸引人的地方在于它是一个框架，任何人都可以根据需求方便的修改。它也提供了多种类型爬虫的基类，如BaseSpider、sitemap爬虫等，最新版本又提供了web2.0爬虫的支持。</p>
@@ -90,7 +124,7 @@
     <link href="itaban.github.io/2017/04/02/hexo-blog/"/>
     <id>itaban.github.io/2017/04/02/hexo-blog/</id>
     <published>2017-04-02T14:18:34.000Z</published>
-    <updated>2017-06-13T12:33:31.890Z</updated>
+    <updated>2017-06-13T12:33:31.889Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Hexo是什么？"><a href="#Hexo是什么？" class="headerlink" title="Hexo是什么？"></a>Hexo是什么？</h1><p>  Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托管在github和Heroku上。<br>快速、简单且功能强大的 Node.js 博客框架。A fast, simple &amp; powerful blog framework, powered by Node.js.</p>
 <h1 id="GitHub-Pages是什么？"><a href="#GitHub-Pages是什么？" class="headerlink" title="GitHub Pages是什么？"></a>GitHub Pages是什么？</h1><p>  GitHub Pages 可以被认为是用户编写的、托管在github上的静态网页。由于它的空间免费稳定， 可以用于介绍托管在github上的Project或者搭建网站。</p>
@@ -119,9 +153,9 @@
     </summary>
     
     
-      <category term="python" scheme="itaban.github.io/tags/python/"/>
-    
       <category term="java" scheme="itaban.github.io/tags/java/"/>
+    
+      <category term="python" scheme="itaban.github.io/tags/python/"/>
     
   </entry>
   
@@ -130,7 +164,7 @@
     <link href="itaban.github.io/2016/02/01/installMysqlOnCentos/"/>
     <id>itaban.github.io/2016/02/01/installMysqlOnCentos/</id>
     <published>2016-02-01T06:29:57.000Z</published>
-    <updated>2017-07-01T07:48:55.471Z</updated>
+    <updated>2017-07-01T07:48:55.470Z</updated>
     
     <content type="html"><![CDATA[<h1 id="1、配置yum源"><a href="#1、配置yum源" class="headerlink" title="1、配置yum源"></a>1、配置yum源</h1><h4 id="下载源"><a href="#下载源" class="headerlink" title="下载源"></a>下载源</h4><p><code>wget wget http://dev.mysql.com/get/mysql57-community-release-el7-8.noarch.rpm</code></p>
 <h4 id="安装源"><a href="#安装源" class="headerlink" title="安装源"></a>安装源</h4><p><code>rpm -ivh mysql57-community-release-el7-8.noarch.rpm</code></p>
@@ -161,7 +195,7 @@
     <link href="itaban.github.io/2016/01/04/maven-build-modules-project/"/>
     <id>itaban.github.io/2016/01/04/maven-build-modules-project/</id>
     <published>2016-01-04T09:58:44.000Z</published>
-    <updated>2017-07-22T15:22:41.834Z</updated>
+    <updated>2017-07-23T05:04:19.028Z</updated>
     
     <content type="html"><![CDATA[<h2 id="创建父级模块"><a href="#创建父级模块" class="headerlink" title="创建父级模块"></a>创建父级模块</h2><h5 id="1、命令行运行："><a href="#1、命令行运行：" class="headerlink" title="1、命令行运行："></a>1、命令行运行：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop </div><div class="line">-Dversion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-site-simple </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
 <h5 id="2、项目结构如下图："><a href="#2、项目结构如下图：" class="headerlink" title="2、项目结构如下图："></a>2、项目结构如下图：</h5><p><img src="/img/maven-build-modules-project/parent.png" alt="img"></p>
@@ -177,17 +211,22 @@
 </ul>
 <p>项目结构如下图：<br><img src="/img/maven-build-modules-project/common-config.png" alt="img"></p>
 <ul>
-<li>系统服务模块<br>|__ 此模块为整个系统的业务逻辑处理模块，存放各种业务代码。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Service </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<li>系统服务模块<br> |__ 此模块为整个系统的业务逻辑处理模块，存放各种业务代码。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Service </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>项目结构如下图：<br><img src="/img/maven-build-modules-project/service.png" alt="img"></p>
 <ul>
-<li>系统domain模块<br>|__ 此模块存放数据库映射bean。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Domain </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<li>系统dao模块<br> |__ 此模块介于服务层与数据层之间。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Dao </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/dao.png" alt="img"></p>
+<ul>
+<li>系统domain模块<br> |__ 此模块存放数据库映射bean。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Domain </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>项目结构如下图：<br><img src="/img/maven-build-modules-project/service.png" alt="img"></p>
 <ul>
-<li>系统web模块<br>|__ 此模块为web服务模块，提供web服务。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Web </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-webapp </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
+<li>系统web模块<br> |__ 此模块为web服务模块，提供web服务。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Web </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-webapp </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>项目结构如下图：<br><img src="/img/maven-build-modules-project/web.png" alt="img"></p>

@@ -6,27 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="itaban.github.io">
-  <title>使用maven命令行创建多模块项目 | itaban入门到放弃家园--_--!!!</title>
+  <title>Archives: 2017/9 | itaban入门到放弃家园--_--!!!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="创建父级模块1、命令行运行：1234mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop -Dversion=1.0.0-SNAPSHOT -Dpackage=com.zmrx -DarchetypeArtifactId=maven-archetype-site-simple -DarchetypeGroupId=org.apac">
-<meta name="keywords" content="java">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用maven命令行创建多模块项目">
-<meta property="og:url" content="itaban.github.io/2016/01/04/maven-build-modules-project/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="itaban入门到放弃家园--_--!!!">
+<meta property="og:url" content="itaban.github.io/archives/2017/09/index.html">
 <meta property="og:site_name" content="itaban入门到放弃家园--_--!!!">
-<meta property="og:description" content="创建父级模块1、命令行运行：1234mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop -Dversion=1.0.0-SNAPSHOT -Dpackage=com.zmrx -DarchetypeArtifactId=maven-archetype-site-simple -DarchetypeGroupId=org.apac">
-<meta property="og:image" content="/img/maven-build-modules-project/parent.png">
-<meta property="og:image" content="/img/maven-build-modules-project/common.png">
-<meta property="og:image" content="/img/maven-build-modules-project/common-config.png">
-<meta property="og:image" content="/img/maven-build-modules-project/service.png">
-<meta property="og:image" content="/img/maven-build-modules-project/dao.png">
-<meta property="og:image" content="/img/maven-build-modules-project/service.png">
-<meta property="og:image" content="/img/maven-build-modules-project/web.png">
-<meta property="og:updated_time" content="2017-07-23T05:04:19.028Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用maven命令行创建多模块项目">
-<meta name="twitter:description" content="创建父级模块1、命令行运行：1234mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop -Dversion=1.0.0-SNAPSHOT -Dpackage=com.zmrx -DarchetypeArtifactId=maven-archetype-site-simple -DarchetypeGroupId=org.apac">
-<meta name="twitter:image" content="/img/maven-build-modules-project/parent.png">
+<meta name="twitter:title" content="itaban入门到放弃家园--_--!!!">
   
     <link rel="alternative" href="/atom.xml" title="itaban入门到放弃家园--_--!!!" type="application/atom+xml">
   
@@ -188,98 +175,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-maven-build-modules-project" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      使用maven命令行创建多模块项目
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/09/03/create-spring-cloud-app-by-maven/" class="archive-article-date">
+  	<time datetime="2017-09-03T13:51:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/09/03/create-spring-cloud-app-by-maven/">create-spring-cloud-app-by-maven</a>
     </h1>
   
 
-        
-        <a href="/2016/01/04/maven-build-modules-project/" class="archive-article-date">
-  	<time datetime="2016-01-04T09:58:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-01-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="创建父级模块"><a href="#创建父级模块" class="headerlink" title="创建父级模块"></a>创建父级模块</h2><h5 id="1、命令行运行："><a href="#1、命令行运行：" class="headerlink" title="1、命令行运行："></a>1、命令行运行：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop </div><div class="line">-Dversion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-site-simple </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-<h5 id="2、项目结构如下图："><a href="#2、项目结构如下图：" class="headerlink" title="2、项目结构如下图："></a>2、项目结构如下图：</h5><p><img src="/img/maven-build-modules-project/parent.png" alt="img"></p>
-<h2 id="创建子模块"><a href="#创建子模块" class="headerlink" title="创建子模块"></a>创建子模块</h2><h5 id="1、切换目录"><a href="#1、切换目录" class="headerlink" title="1、切换目录"></a>1、切换目录</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd DShop/</div></pre></td></tr></table></figure>
-<h5 id="2、创建项目子模块"><a href="#2、创建项目子模块" class="headerlink" title="2、创建项目子模块"></a>2、创建项目子模块</h5><ul>
-<li>系统公共模块<br>|__  此模块存放整个系统共用的一些方法啊，比如时间处理，分页处理，异常处理等等。</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Common </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/common.png" alt="img"></p>
-<ul>
-<li>系统公共配置模块<br> |__ 此模块存放整个系统配置文件，比如spring的配置文件，hibernate的配置文件，日志配置文件等等。 <figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx </div><div class="line">-DartifactId=DShop-Common-Config -Devrsion=1.0.0-SNAPSHOT </div><div class="line">-Dpackage=com.zmrx -DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/common-config.png" alt="img"></p>
-<ul>
-<li>系统服务模块<br> |__ 此模块为整个系统的业务逻辑处理模块，存放各种业务代码。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Service </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/service.png" alt="img"></p>
-<ul>
-<li>系统dao模块<br> |__ 此模块介于服务层与数据层之间。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Dao </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/dao.png" alt="img"></p>
-<ul>
-<li>系统domain模块<br> |__ 此模块存放数据库映射bean。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Domain </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-quickstart </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/service.png" alt="img"></p>
-<ul>
-<li>系统web模块<br> |__ 此模块为web服务模块，提供web服务。<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DgroupId=com.zmrx -DartifactId=DShop-Web </div><div class="line">-Devrsion=1.0.0-SNAPSHOT -Dpackage=com.zmrx </div><div class="line">-DarchetypeArtifactId=maven-archetype-webapp </div><div class="line">-DarchetypeGroupId=org.apache.maven.archetypes -DinteractiveMode=false</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>项目结构如下图：<br><img src="/img/maven-build-modules-project/web.png" alt="img"></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.JPG">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/weixinpay.JPG">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -291,92 +216,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=http:itaban.github.io/2016/01/04/maven-build-modules-project/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2016/02/01/installMysqlOnCentos/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          centos7安装mysql server 5.7
-        
-      </div>
-    </a>
   
   
-</nav>
-
-
-
-
-
-
-  
-    <div class="duoshuo"></div>
+    </div></section>
   
 
-
+    
 
 
           </div>
@@ -399,8 +251,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
