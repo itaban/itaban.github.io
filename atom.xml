@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="itaban.github.io/"/>
-  <updated>2018-03-23T06:33:39.736Z</updated>
+  <updated>2018-03-23T06:36:26.425Z</updated>
   <id>itaban.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="itaban.github.io/2018/03/23/vue-iview-app/"/>
     <id>itaban.github.io/2018/03/23/vue-iview-app/</id>
     <published>2018-03-23T02:54:19.000Z</published>
-    <updated>2018-03-23T06:33:39.736Z</updated>
+    <updated>2018-03-23T06:36:26.425Z</updated>
     
     <content type="html"><![CDATA[<h2 id="一、初始化vue项目"><a href="#一、初始化vue项目" class="headerlink" title="一、初始化vue项目"></a>一、初始化vue项目</h2><h3 id="1、-全局安装-vue-cli"><a href="#1、-全局安装-vue-cli" class="headerlink" title="1、 全局安装 vue-cli"></a>1、 全局安装 vue-cli</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global vue-cli</div></pre></td></tr></table></figure>
 <h3 id="2、创建一个基于-webpack-模板的新项目"><a href="#2、创建一个基于-webpack-模板的新项目" class="headerlink" title="2、创建一个基于 webpack 模板的新项目"></a>2、创建一个基于 webpack 模板的新项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack treasury_itaban</div></pre></td></tr></table></figure>
@@ -37,10 +37,10 @@
 <h5 id="浏览器打开localhost-8080"><a href="#浏览器打开localhost-8080" class="headerlink" title="浏览器打开localhost:8080"></a>浏览器打开localhost:8080</h5><p><img src="/img/vue-iview-app/first_iview_page.png" alt="img"></p>
 <h4 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
 <h6 id="执行完毕后，会在项目目录下生成dist目录"><a href="#执行完毕后，会在项目目录下生成dist目录" class="headerlink" title="执行完毕后，会在项目目录下生成dist目录"></a>执行完毕后，会在项目目录下生成dist目录</h6><p><img src="/img/vue-iview-app/build_result.png" alt="img"></p>
-<h2 id="四、使用HBuilder真机测试"><a href="#四、使用HBuilder真机测试" class="headerlink" title="四、使用HBuilder真机测试"></a>四、使用HBuilder真机测试</h2><h4 id="1、将安卓手链接到电脑，打开开发者模式"><a href="#1、将安卓手链接到电脑，打开开发者模式" class="headerlink" title="1、将安卓手链接到电脑，打开开发者模式"></a>1、将安卓手链接到电脑，打开开发者模式</h4><h4 id="2、运行-gt-真机运行-gt-选择链接的手机"><a href="#2、运行-gt-真机运行-gt-选择链接的手机" class="headerlink" title="2、运行-&gt;真机运行-&gt;选择链接的手机"></a>2、运行-&gt;真机运行-&gt;选择链接的手机</h4><h4 id="3、等待一会即可打开手机查看运行效果了"><a href="#3、等待一会即可打开手机查看运行效果了" class="headerlink" title="3、等待一会即可打开手机查看运行效果了"></a>3、等待一会即可打开手机查看运行效果了</h4><h4 id="4、按照之前的步骤，真机上运行是一个空白页，需要修改config-index-js文件夹下的assetsPublicPath配置，将”-“修改为”-”（这步很关键）然后再重新执行"><a href="#4、按照之前的步骤，真机上运行是一个空白页，需要修改config-index-js文件夹下的assetsPublicPath配置，将”-“修改为”-”（这步很关键）然后再重新执行" class="headerlink" title="4、按照之前的步骤，真机上运行是一个空白页，需要修改config/index.js文件夹下的assetsPublicPath配置，将”/“修改为”.”（这步很关键）然后再重新执行"></a>4、按照之前的步骤，真机上运行是一个空白页，需要修改config/index.js文件夹下的assetsPublicPath配置，将”/“修改为”.”（这步很关键）然后再重新执行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
-<h2 id="五、使用HBuilder打包APP"><a href="#五、使用HBuilder打包APP" class="headerlink" title="五、使用HBuilder打包APP"></a>五、使用HBuilder打包APP</h2><h3 id="1、文件-gt-新建-gt-移动app"><a href="#1、文件-gt-新建-gt-移动app" class="headerlink" title="1、文件-&gt;新建-&gt;移动app"></a>1、文件-&gt;新建-&gt;移动app</h3><p><img src="/img/vue-iview-app/HBuilderCreateApp.png" alt="img"><br>点击确定，生成项目目录结构如下所示：<br><img src="/img/vue-iview-app/HBuilderInitCreate.png" alt="img"></p>
+<h2 id="四、使用HBuilder真机测试和打包APP"><a href="#四、使用HBuilder真机测试和打包APP" class="headerlink" title="四、使用HBuilder真机测试和打包APP"></a>四、使用HBuilder真机测试和打包APP</h2><h3 id="1、文件-gt-新建-gt-移动app"><a href="#1、文件-gt-新建-gt-移动app" class="headerlink" title="1、文件-&gt;新建-&gt;移动app"></a>1、文件-&gt;新建-&gt;移动app</h3><p><img src="/img/vue-iview-app/HBuilderCreateApp.png" alt="img"><br>点击确定，生成项目目录结构如下所示：<br><img src="/img/vue-iview-app/HBuilderInitCreate.png" alt="img"></p>
 <h3 id="2、保留unpackage、manifest-json这两个文件，其它删除"><a href="#2、保留unpackage、manifest-json这两个文件，其它删除" class="headerlink" title="2、保留unpackage、manifest.json这两个文件，其它删除"></a>2、保留unpackage、manifest.json这两个文件，其它删除</h3><h3 id="3、将上一步打包的文件放在该文件目录下"><a href="#3、将上一步打包的文件放在该文件目录下" class="headerlink" title="3、将上一步打包的文件放在该文件目录下"></a>3、将上一步打包的文件放在该文件目录下</h3><p><img src="/img/vue-iview-app/HbuilderPackageResource.png" alt="img"></p>
-<h3 id="4、云打包-发行-gt-云打包-打原生安装包"><a href="#4、云打包-发行-gt-云打包-打原生安装包" class="headerlink" title="4、云打包 发行-&gt;云打包-打原生安装包"></a>4、云打包 发行-&gt;云打包-打原生安装包</h3><p><img src="/img/vue-iview-app/buildapp.png" alt="img"><br><img src="/img/vue-iview-app/buildApping.png" alt="img"></p>
+<h4 id="4、将安卓手链接到电脑，打开开发者模式"><a href="#4、将安卓手链接到电脑，打开开发者模式" class="headerlink" title="4、将安卓手链接到电脑，打开开发者模式"></a>4、将安卓手链接到电脑，打开开发者模式</h4><h4 id="5、运行-gt-真机运行-gt-选择链接的手机"><a href="#5、运行-gt-真机运行-gt-选择链接的手机" class="headerlink" title="5、运行-&gt;真机运行-&gt;选择链接的手机"></a>5、运行-&gt;真机运行-&gt;选择链接的手机</h4><h4 id="6、等待一会即可打开手机查看运行效果了"><a href="#6、等待一会即可打开手机查看运行效果了" class="headerlink" title="6、等待一会即可打开手机查看运行效果了"></a>6、等待一会即可打开手机查看运行效果了</h4><h4 id="7、按照之前的步骤，真机上运行是一个空白页，需要修改config-index-js文件夹下的assetsPublicPath配置，将”-“修改为”-”（这步很关键）然后再重新执行"><a href="#7、按照之前的步骤，真机上运行是一个空白页，需要修改config-index-js文件夹下的assetsPublicPath配置，将”-“修改为”-”（这步很关键）然后再重新执行" class="headerlink" title="7、按照之前的步骤，真机上运行是一个空白页，需要修改config/index.js文件夹下的assetsPublicPath配置，将”/“修改为”.”（这步很关键）然后再重新执行"></a>7、按照之前的步骤，真机上运行是一个空白页，需要修改config/index.js文件夹下的assetsPublicPath配置，将”/“修改为”.”（这步很关键）然后再重新执行</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run build</div></pre></td></tr></table></figure>
+<h3 id="8、云打包-发行-gt-云打包-打原生安装包"><a href="#8、云打包-发行-gt-云打包-打原生安装包" class="headerlink" title="8、云打包 发行-&gt;云打包-打原生安装包"></a>8、云打包 发行-&gt;云打包-打原生安装包</h3><p><img src="/img/vue-iview-app/buildapp.png" alt="img"><br><img src="/img/vue-iview-app/buildApping.png" alt="img"></p>
 ]]></content>
     
     <summary type="html">
