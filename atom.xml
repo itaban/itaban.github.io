@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="itaban.github.io/"/>
-  <updated>2017-09-03T14:45:16.915Z</updated>
+  <updated>2018-03-23T03:03:46.289Z</updated>
   <id>itaban.github.io/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue-iview-app项目实践</title>
+    <link href="itaban.github.io/2018/03/23/vue-iview-app/"/>
+    <id>itaban.github.io/2018/03/23/vue-iview-app/</id>
+    <published>2018-03-23T02:54:19.000Z</published>
+    <updated>2018-03-23T03:03:46.289Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1、-全局安装-vue-cli"><a href="#1、-全局安装-vue-cli" class="headerlink" title="1、 全局安装 vue-cli"></a>1、 全局安装 vue-cli</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --global vue-cli</div></pre></td></tr></table></figure>
+<h3 id="2、创建一个基于-webpack-模板的新项目"><a href="#2、创建一个基于-webpack-模板的新项目" class="headerlink" title="2、创建一个基于 webpack 模板的新项目"></a>2、创建一个基于 webpack 模板的新项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vue init webpack treasury_itaban</div></pre></td></tr></table></figure>
+<h3 id="3、安装依赖"><a href="#3、安装依赖" class="headerlink" title="3、安装依赖"></a>3、安装依赖</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd treasury_itaban</div><div class="line">npm install</div></pre></td></tr></table></figure>
+<h3 id="4、运行项目"><a href="#4、运行项目" class="headerlink" title="4、运行项目"></a>4、运行项目</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm run dev</div></pre></td></tr></table></figure>
+<h3 id="5、创建的项目目录结构如下所示"><a href="#5、创建的项目目录结构如下所示" class="headerlink" title="5、创建的项目目录结构如下所示"></a>5、创建的项目目录结构如下所示</h3><p><img src="/img/vue-iview-app/initViewProject.png" alt="img"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1、-全局安装-vue-cli&quot;&gt;&lt;a href=&quot;#1、-全局安装-vue-cli&quot; class=&quot;headerlink&quot; title=&quot;1、 全局安装 vue-cli&quot;&gt;&lt;/a&gt;1、 全局安装 vue-cli&lt;/h3&gt;&lt;figure class=&quot;highli
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="itaban.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>create-spring-cloud-app-by-maven</title>
