@@ -6,14 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="itaban.github.io">
-  <title>Archives: 2018 | itaban入门到放弃家园--_--!!!</title>
+  <title>Jenkins+sonar集成实践 | itaban入门到放弃家园--_--!!!</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="itaban入门到放弃家园--_--!!!">
-<meta property="og:url" content="itaban.github.io/archives/2018/index.html">
+  <meta name="description" content="一、Jenkins介绍Jenkins起源于Hudson,占据了很大的市场份额，可被各种大小的团队和用不同语言(.NET,Ruby,Groovy,Grails,PHP等)开发的项目使用。优点如下：  易用性； 可扩展。插件覆盖了版本控制系统，构建工具，代码质量度量工具，通知工具，和其它外部系统进行集成，UI自定义等； 活跃的社区； 稳定版本的支持。Long-term Support(LTS)发布。">
+<meta name="keywords" content="其它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jenkins+sonar集成实践">
+<meta property="og:url" content="itaban.github.io/2018/04/16/Jenkins-sonar/index.html">
 <meta property="og:site_name" content="itaban入门到放弃家园--_--!!!">
+<meta property="og:description" content="一、Jenkins介绍Jenkins起源于Hudson,占据了很大的市场份额，可被各种大小的团队和用不同语言(.NET,Ruby,Groovy,Grails,PHP等)开发的项目使用。优点如下：  易用性； 可扩展。插件覆盖了版本控制系统，构建工具，代码质量度量工具，通知工具，和其它外部系统进行集成，UI自定义等； 活跃的社区； 稳定版本的支持。Long-term Support(LTS)发布。">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-first.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-two.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-three.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-four.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-config-jdk.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-config-git.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-config-maven.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-name.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-code.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-list.png">
+<meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-kongzhi.png">
+<meta property="og:updated_time" content="2018-04-16T08:16:56.164Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="itaban入门到放弃家园--_--!!!">
+<meta name="twitter:title" content="Jenkins+sonar集成实践">
+<meta name="twitter:description" content="一、Jenkins介绍Jenkins起源于Hudson,占据了很大的市场份额，可被各种大小的团队和用不同语言(.NET,Ruby,Groovy,Grails,PHP等)开发的项目使用。优点如下：  易用性； 可扩展。插件覆盖了版本控制系统，构建工具，代码质量度量工具，通知工具，和其它外部系统进行集成，UI自定义等； 活跃的社区； 稳定版本的支持。Long-term Support(LTS)发布。">
+<meta name="twitter:image" content="/img/Jenkins-sonar/Jenkins-first.png">
   
     <link rel="alternative" href="/atom.xml" title="itaban入门到放弃家园--_--!!!" type="application/atom+xml">
   
@@ -181,36 +198,89 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-Jenkins-sonar" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/04/16/Jenkins-sonar/" class="archive-article-date">
-  	<time datetime="2018-04-16T07:16:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/04/16/Jenkins-sonar/">Jenkins+sonar集成实践</a>
+    <h1 class="article-title" itemprop="name">
+      Jenkins+sonar集成实践
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/04/16/Jenkins-sonar/" class="archive-article-date">
+  	<time datetime="2018-04-16T07:16:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、Jenkins介绍"><a href="#一、Jenkins介绍" class="headerlink" title="一、Jenkins介绍"></a>一、Jenkins介绍</h2><p>Jenkins起源于Hudson,占据了很大的市场份额，可被各种大小的团队和用不同语言(.NET,Ruby,Groovy,Grails,PHP等)开发的项目使用。优点如下：</p>
+<ul>
+<li>易用性；</li>
+<li>可扩展。插件覆盖了版本控制系统，构建工具，代码质量度量工具，通知工具，和其它外部系统进行集成，UI自定义等；</li>
+<li>活跃的社区；</li>
+<li>稳定版本的支持。Long-term Support(LTS)发布。</li>
+</ul>
+<h2 id="二、Jenkins下载"><a href="#二、Jenkins下载" class="headerlink" title="二、Jenkins下载"></a>二、Jenkins下载</h2><p>进入Jenkins官网，找到相关下载地址，使用wget下载rpm安装包<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget https://pkg.jenkins.io/redhat-stable/jenkins-2.89.4-1.1.noarch.rpm</div></pre></td></tr></table></figure></p>
+<h2 id="三、Jenkins安装"><a href="#三、Jenkins安装" class="headerlink" title="三、Jenkins安装"></a>三、Jenkins安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh jenkins-2.89.4-1.1.noarch.rpm</div></pre></td></tr></table></figure>
+<p>自动安装完成之后Jenkins对应目录如下：<br>/usr/lib/jenkins/jenkins.war    WAR包<br>/etc/sysconfig/jenkins       配置文件<br>/var/lib/jenkins/        默认的JENKINS_HOME目录<br>/var/log/jenkins/jenkins.log    Jenkins日志文件</p>
+<h2 id="四、启动Jenkins"><a href="#四、启动Jenkins" class="headerlink" title="四、启动Jenkins"></a>四、启动Jenkins</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service jenkins start</div></pre></td></tr></table></figure>
+<p>启动正常，可以访问：<a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> ，假如没有装jdk，会启动报错，安装jdk后再启动即可<br>浏览器访问如下所示：<br><img src="/img/Jenkins-sonar/Jenkins-first.png" alt="img"></p>
+<h2 id="五、初始化配置Jenkins"><a href="#五、初始化配置Jenkins" class="headerlink" title="五、初始化配置Jenkins"></a>五、初始化配置Jenkins</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /var/lib/jenkins/secrets/initialAdminPassword</div></pre></td></tr></table></figure>
+<p>将该文件内的密码串贴到上图中的文本框内，选择“continue”<br><img src="/img/Jenkins-sonar/Jenkins-two.png" alt="img"><br>这里我们点击的Install suggested plugins，安装默认插件，当然你也可以点击另一个按钮安装指定的插件。<br>点击后，页面进入了插件下载安装页面。<br><img src="/img/Jenkins-sonar/Jenkins-three.png" alt="img"><br>耐心等待全部安装完成。安装完成后，页面自动进入了管理员账户注册页面。<br><img src="/img/Jenkins-sonar/Jenkins-four.png" alt="img"></p>
+<h2 id="六、Jenkins系统配置"><a href="#六、Jenkins系统配置" class="headerlink" title="六、Jenkins系统配置"></a>六、Jenkins系统配置</h2><h4 id="全局工具配置"><a href="#全局工具配置" class="headerlink" title="全局工具配置"></a>全局工具配置</h4><ul>
+<li>配置jdk<br><img src="/img/Jenkins-sonar/Jenkins-config-jdk.png" alt="img"></li>
+<li>配置git<br><img src="/img/Jenkins-sonar/Jenkins-config-git.png" alt="img"></li>
+<li>配置maven<br><img src="/img/Jenkins-sonar/Jenkins-config-maven.png" alt="img"><h2 id="七、创建一个新任务"><a href="#七、创建一个新任务" class="headerlink" title="七、创建一个新任务"></a>七、创建一个新任务</h2></li>
+<li>点击新建任务：<br><img src="/img/Jenkins-sonar/Jenkins-new-name.png" alt="img"></li>
+<li>配置源码<br><img src="/img/Jenkins-sonar/Jenkins-new-code.png" alt="img"></li>
+<li>完成配置<br><img src="/img/Jenkins-sonar/Jenkins-new-list.png" alt="img"></li>
+<li>点击列表后面构建按钮</li>
+<li>控制台输出<br><img src="/img/Jenkins-sonar/Jenkins-new-kongzhi.png" alt="img"></li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/weixinpay.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -222,57 +292,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http:itaban.github.io/2018/04/16/Jenkins-sonar/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/03/23/vue-iview-app/" class="archive-article-date">
-  	<time datetime="2018-03-23T02:54:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-23</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/03/23/vue-iview-app/">vue-iview-app项目实践</a>
-    </h1>
+  
+    <a href="/2018/03/23/vue-iview-app/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue-iview-app项目实践</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -295,8 +396,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
