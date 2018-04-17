@@ -26,7 +26,12 @@
 <meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-code.png">
 <meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-list.png">
 <meta property="og:image" content="/img/Jenkins-sonar/Jenkins-new-kongzhi.png">
-<meta property="og:updated_time" content="2018-04-16T08:16:56.164Z">
+<meta property="og:image" content="/img/Jenkins-sonar/sonar-index.png">
+<meta property="og:image" content="/img/Jenkins-sonar/sonar-token.png">
+<meta property="og:image" content="/img/Jenkins-sonar/sonar-token-update.png">
+<meta property="og:image" content="/img/Jenkins-sonar/sonar-result.png">
+<meta property="og:image" content="/img/Jenkins-sonar/sonar-shell.png">
+<meta property="og:updated_time" content="2018-04-17T02:14:16.038Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jenkins+sonar集成实践">
 <meta name="twitter:description" content="一、Jenkins介绍Jenkins起源于Hudson,占据了很大的市场份额，可被各种大小的团队和用不同语言(.NET,Ruby,Groovy,Grails,PHP等)开发的项目使用。优点如下：  易用性； 可扩展。插件覆盖了版本控制系统，构建工具，代码质量度量工具，通知工具，和其它外部系统进行集成，UI自定义等； 活跃的社区； 稳定版本的支持。Long-term Support(LTS)发布。">
@@ -242,6 +247,29 @@
 <li>点击列表后面构建按钮</li>
 <li>控制台输出<br><img src="/img/Jenkins-sonar/Jenkins-new-kongzhi.png" alt="img"></li>
 </ul>
+<h2 id="八、SonarQube™-介绍"><a href="#八、SonarQube™-介绍" class="headerlink" title="八、SonarQube™ 介绍"></a>八、SonarQube™ 介绍</h2><p>是一个开源的代码质量管理系统。</p>
+<ul>
+<li>支持超过25种编程语言[2]：Java、C/C++、C#、PHP、Flex、Groovy、JavaScript、Python、PL/SQL、COBOL等。（不过有些是商业软件插件）</li>
+<li>可以在Android开发中使用</li>
+<li>提供重复代码、编码标准、单元测试、代码覆盖率、代码复杂度、潜在Bug、注释和软件设计报告</li>
+<li>提供了指标历史记录、计划图（“时间机器”）和微分查看</li>
+<li>提供了完全自动化的分析：与Maven、Ant、Gradle和持续集成工具（Atlassian Bamboo、Jenkins、Hudson等）</li>
+<li>与Eclipse开发环境集成</li>
+<li>与JIRA、Mantis、LDAP、Fortify等外部工具集</li>
+<li>支持扩展插件</li>
+<li>利用SQALE计算技术债务</li>
+<li>支持Tomcat。不过计划从SonarQube 4.1起终止对Tomcat的支持。<h2 id="九、SonarQube™安装"><a href="#九、SonarQube™安装" class="headerlink" title="九、SonarQube™安装"></a>九、SonarQube™安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-6.7.3.zip</div><div class="line">unzip sonarqube-6.7.3.zip -d /usr/local</div><div class="line">cd /usr/local/sonarqube-6.7.3</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="SonarQube集成了“elasticsearch”，而“elasticsearch”是不支持root用户启动的，因此要创建用户及用户组"><a href="#SonarQube集成了“elasticsearch”，而“elasticsearch”是不支持root用户启动的，因此要创建用户及用户组" class="headerlink" title="* SonarQube集成了“elasticsearch”，而“elasticsearch”是不支持root用户启动的，因此要创建用户及用户组"></a>* SonarQube集成了“elasticsearch”，而“elasticsearch”是不支持root用户启动的，因此要创建用户及用户组</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">adduser sonarUser</div><div class="line">passwd sonarUser</div><div class="line">groupadd sonarUser</div><div class="line">usermod -G sonarUser sonarUser</div></pre></td></tr></table></figure>
+<p>给sonarUser用户文件夹”sonarqube-6.7.3”权限<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chown -R sonarUser:sonarUser sonarqube-6.7.3</div></pre></td></tr></table></figure></p>
+<h2 id="十、启动SonarQube™"><a href="#十、启动SonarQube™" class="headerlink" title="十、启动SonarQube™"></a>十、启动SonarQube™</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bin/linux-x86-64/sonar.sh start</div></pre></td></tr></table></figure>
+<p>浏览器访问：<a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a><br><img src="/img/Jenkins-sonar/sonar-index.png" alt="img"></p>
+<h2 id="十一、SonarQube™应用"><a href="#十一、SonarQube™应用" class="headerlink" title="十一、SonarQube™应用"></a>十一、SonarQube™应用</h2><p>打开maven项目，在项目根目录下执行：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn sonar:sonar   -Dsonar.host.url=http://localhost:9000   -Dsonar.login=25be0ccbdae66f9a89604cbe176c3bbf65b70b0f</div></pre></td></tr></table></figure></p>
+<ul>
+<li>最后一串是秘钥，首次启动的时候会生成，也可以在管理页面进行更换，如下：<br><img src="/img/Jenkins-sonar/sonar-token.png" alt="img"><br><img src="/img/Jenkins-sonar/sonar-token-update.png" alt="img"><h2 id="十二、SonarQube™效果展示"><a href="#十二、SonarQube™效果展示" class="headerlink" title="十二、SonarQube™效果展示"></a>十二、SonarQube™效果展示</h2><img src="/img/Jenkins-sonar/sonar-result.png" alt="img"></li>
+</ul>
+<h2 id="十三、Jenkins与SonarQube™集成"><a href="#十三、Jenkins与SonarQube™集成" class="headerlink" title="十三、Jenkins与SonarQube™集成"></a>十三、Jenkins与SonarQube™集成</h2><p>配置Jenkins任务，添加shell脚本(简单粗暴的方式)<br><img src="/img/Jenkins-sonar/sonar-shell.png" alt="img"></p>
 
       
 
